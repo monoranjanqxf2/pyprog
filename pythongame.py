@@ -35,7 +35,7 @@ class pythongame:
         while choice=="Y" or choice=="y":
             guessed_number.clear()
             random_num=random.randint(1,10)#generating random number
-            print(f"Random number is : {random_num}") #only for debugging purpose print the random number
+            #print(f"Random number is : {random_num}") #only for debugging purpose print the random number
             for i in range(self.number_of_players):#asking to guess a number
                 num=int(input(f"{self.player_name[i]}, Can you guess a number between 1 to 10 : "))
                 guessed_number.append(num)
