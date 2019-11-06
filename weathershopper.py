@@ -1,5 +1,8 @@
 """
 Weather Shopper Program
+
+Python 3.7.0 and Selenium 3.141.0
+
 Author : Monoranjan Mandal
 E-mail : sonu.mandal95@gmail.com 
 Getting temperature from https://weathershopper.pythonanywhere.com/ 
