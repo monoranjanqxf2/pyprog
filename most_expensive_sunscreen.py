@@ -1,6 +1,6 @@
 '''
 Finding most expensive Moisturizer Programs: 
-Add all the moisturizer to a cart of this site https://weathershopper.pythonanywhere.com/moisturizer
+Add all the moisturizer to a cart of this site https://weathershopper.pythonanywhere.com/sunscreen
 ----------------------------------
 Python 3.7.0 and Selenium 3.141.0
 ----------------------------------
