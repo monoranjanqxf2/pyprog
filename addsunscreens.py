@@ -33,7 +33,7 @@ for item in button:
     item.click()
 # Getting a webelement of cart button
 time.sleep(3)
-button_cart=driver.find_element_by_xpath("//button[@class='thin-text nav-link']")
+button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 #clicking cart button to view result
 button_cart.click()
 time.sleep(3)
