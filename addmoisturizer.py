@@ -36,5 +36,15 @@ time.sleep(3)
 button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 #clicking cart button to view result
 button_cart.click()
+table=driver.find_element_by_xpath("//table[contains(@class,'table table-striped')]")
+#getting number of rows in table
+rows=table.find_elements_by_xpath("//tbody/descendant::tr")
+#finding number of rows
+no_of_row=len(rows)
+#check if number of row is 6 or not
+if(no_of_row==6):
+    print("Test successfull")
+else:
+    print("Test Failed")
 time.sleep(3)
 driver.close()
