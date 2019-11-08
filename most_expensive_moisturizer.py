@@ -60,17 +60,17 @@ time.sleep(1)
 button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 button_cart.click()
 #checking table items
-table=driver.find_element_by_xpath("//table[contains(@class,'table table-striped')]")
+cart_table=driver.find_element_by_xpath("//table[contains(@class,'table table-striped')]")
 #getting number of rows in table
-rows=table.find_elements_by_xpath("//tbody/descendant::tr")
+cart_rows=cart_table.find_elements_by_xpath("//tbody/descendant::tr")
 #finding number of rows
-no_of_row=len(rows)
+no_of_row=len(cart_rows)
 #spliting main_item_list to get item name
-item_name,item_price,dump_text=main_item_list[position_of_item].split("\n")
+item_name,item_price,add_button_text=main_item_list[position_of_item].split("\n")
 #print(item_name_price)
 if(no_of_row==1):
     #verifying most expensive item with cart item
-    if(item_name+" "+str(max_price)==rows[0].text):
+    if(item_name+" "+str(max_price)==cart_rows[0].text):
         print("Text Successfull")
     else:
         print("Test Failed")
