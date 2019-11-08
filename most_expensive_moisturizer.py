@@ -21,7 +21,6 @@ from selenium import webdriver
 import time
 price_list=[]
 item_list=[]
-pos_i=pos_j=0
 driver=webdriver.Chrome()
 driver.maximize_window()
 driver.get('https://weathershopper.pythonanywhere.com/moisturizer')
@@ -32,33 +31,50 @@ item_list_ob=driver.find_elements_by_xpath("//div[contains(@class,'text-center c
 duplicate_price_list=item_list_ob
 main_item_list=[]
 #converting item_list_ob to an 2d String list
-for i in item_list_ob:
-    item_list.append(i.text.split("\n"))
-    main_item_list.append(i.text)
+for item in item_list_ob:
+    item_list.append(item.text.split("\n"))
+    main_item_list.append(item.text)
 #item list found
 actuall_price=[]
 #finding only price list
-for j in item_list:
-    actuall_price.append(int(j[1][-4::]))
+for item in item_list:
+    actuall_price.append(int(item[1][-4::]))
 #finding maximum price
 max_price=max(actuall_price)
 #print max price
 #print(f"max price :{max_price}") #for debugging purposes
 #finding pos of max price item in item list
-for i in range(6):
-    s=item_list[i][1][-4::]
+for position in range(6):
+    s=item_list[position][1][-4::]
     if(int(s)==max_price):
-        pos_i=i
+        position_of_item=position
 print("Most expensive Item sucessfully added to cart :")
-print(main_item_list[pos_i])
+print(main_item_list[position_of_item])
 #getting all button object again to click the appropriate button     
 button=driver.find_elements_by_xpath('//button[contains(@class,"btn btn-primary")]')
-button=button[pos_i]
+button=button[position_of_item]
 #button=duplicate_price_list[pos_i]
 button.click()
-time.sleep(10)
+time.sleep(1)
 #showing cart
 button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 button_cart.click()
+#checking table items
+table=driver.find_element_by_xpath("//table[contains(@class,'table table-striped')]")
+#getting number of rows in table
+rows=table.find_elements_by_xpath("//tbody/descendant::tr")
+#finding number of rows
+no_of_row=len(rows)
+#spliting main_item_list to get item name
+item_name,item_price,dump_text=main_item_list[position_of_item].split("\n")
+#print(item_name_price)
+if(no_of_row==1):
+    #verifying most expensive item with cart item
+    if(item_name+" "+str(max_price)==rows[0].text):
+        print("Text Successfull")
+    else:
+        print("Test Failed")
+else:
+    print("Test Failed")
 time.sleep(3)
 driver.close()
