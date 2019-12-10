@@ -27,7 +27,6 @@ driver.get('https://weathershopper.pythonanywhere.com/moisturizer')
 
 #finding all item in item list as object
 item_list_ob=driver.find_elements_by_xpath("//div[contains(@class,'text-center col-4')]")
-
 duplicate_price_list=item_list_ob
 main_item_list=[]
 #converting item_list_ob to an 2d String list
@@ -55,7 +54,7 @@ button=driver.find_elements_by_xpath('//button[contains(@class,"btn btn-primary"
 button=button[position_of_item]
 #button=duplicate_price_list[pos_i]
 button.click()
-time.sleep(1)
+time.sleep(5)
 #showing cart
 button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 button_cart.click()
@@ -71,7 +70,7 @@ item_name,item_price,add_button_text=main_item_list[position_of_item].split("\n"
 if(no_of_row==1):
     #verifying most expensive item with cart item
     if(item_name+" "+str(max_price)==cart_rows[0].text):
-        print("Text Successfull")
+        print("Test Successfull")
     else:
         print("Test Failed")
 else:

@@ -57,7 +57,7 @@ for position, item_name in enumerate(item_list):
         button_list[position].click()
     if(item_name==min_aloe_name):
         button_list[position].click()
-time.sleep(1)
+time.sleep(7)
 #getting cart button and opening cart by clicking
 button_cart=driver.find_element_by_xpath("//button[contains(@class,'thin-text nav-link')]")
 #clicking cart button to view result
@@ -79,5 +79,5 @@ if(count==len(cart_rows)):
 else:
     print("Test Failed")
         
-time.sleep(3)
+time.sleep(5)
 driver.close()

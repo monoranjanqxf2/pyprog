@@ -3,7 +3,7 @@ Scope:
 1.Enter and 10 names in list
 2.Title case them
 3.Remove duplicates 
-4.Sort those name is acending order of their first name
+4.Sort those name is acending order of their first namegit 
 """
 name_list=[]
 title_case_name=[]

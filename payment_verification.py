@@ -107,7 +107,7 @@ for card_num in card_list:
 #print(card_numbers)
 
 random_card_num=random.randint(1,10)
-print(f'card number :{card_numbers[random_card_num]}')
+print(f'card number : {card_numbers[random_card_num]}')
 
 #switching to frame
 iframe=driver.find_element_by_tag_name('iframe')
